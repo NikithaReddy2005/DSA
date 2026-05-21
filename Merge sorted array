@@ -1,0 +1,19 @@
+# apporach :two pointer
+#T.c:O(m+n) == O(N)
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        if n==0:
+            return nums1
+        i=m-1
+        j=n-1
+        id=(m+n-1)
+        while(j>=0):
+            if( i>=0 and nums1[i]>nums2[j]):
+                nums1[id]=nums1[i]
+                id=id-1
+                i=i-1
+            else:
+                nums1[id]=nums2[j]
+                id=id-1
+                j=j-1
+        return nums1  

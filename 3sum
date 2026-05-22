@@ -1,0 +1,36 @@
+#two pointer apporach  #t.c:O(N**2),s.c:O(1)
+.................................
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Explanation: 
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
+The distinct triplets are [-1,0,1] and [-1,-1,2].
+Notice that the order of the output and the order of the triplets does not matter.
+..................................
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        nums.sort()
+        n = len(nums)
+        for i in range(0, n - 2):
+            if i > 0 and nums[i - 1] == nums[i]:            #[[i],[l],[r]] handle [i] :duplicates
+                continue
+            l = i + 1
+            r = n - 1
+            target = -nums[i]
+            while l < r: 
+                if nums[l] + nums[r] == target:
+                    ans.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+                    while l < r and nums[l - 1] == nums[l]:     ##[[i],[l],[r]] handle [l] :duplicates
+                        l += 1
+                    while l < r and nums[r] == nums[r + 1]:     ###[[i],[l],[r]] handle [r] :duplicates
+                        r -= 1
+                elif nums[l] + nums[r] > target:
+                    r -= 1
+                else:
+                    l += 1
+        return ans

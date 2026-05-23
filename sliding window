@@ -1,0 +1,18 @@
+*array,string:applicable
+*subarray,sub string:applicable
+* not applicable on sub sequence
+*we are finding:
+     maximum/minimum
+     longest/shortest
+     sum/count/average
+     atmost k /atleast k/equal k
+if u find the above keywords in the question then sliding window is applicable
+.............................
+STEPS:
+1.identify pattern
+2.identify wheather it is fixed/variable window
+3.data /info about the window like sum of window or max of window
+4.slide and new window info:
+    perform shrink/fire
+    perform expand/hire
+.................................................................

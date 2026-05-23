@@ -1,0 +1,18 @@
+#sliding window:// variable window
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        res = float("inf")
+        low=0
+        high=0
+        sum=0
+        while(high<len(nums)):            # T>C: O(N)
+            sum+=nums[high]
+            while(sum>=target):           #shrink
+                res=min(res,high-low+1)   #high-low+1 :represents the size of the window 
+                sum-=nums[low]
+                low+=1
+            high+=1                       #expand
+        if(res==float("inf")):
+            return 0
+        return res
+        

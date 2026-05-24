@@ -6,12 +6,14 @@ class Solution:
         res=-1
         d={}
         for high in range(0,len(s)):
-            d[s[high]]=d.get(s[high],0)+1
+            d[s[high]]=d.get(s[high],0)+1 # used to check if the key is present in d if present then +=1,else : assign 0
+# invalid case shrink the window
             while(len(d)>k):
                 d[s[low]]-=1
                 if(d[s[low]]==0):
                     del d[s[low]]
                 low+=1
+# no need to check len(d)<k coz if value is less the k we need to expand that is automatically done by the for loop
             if(len(d)==k):
                 res=max(res,high-low+1)
         return res

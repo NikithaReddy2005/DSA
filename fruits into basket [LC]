@@ -1,4 +1,5 @@
-#sliding window
+#sliding window,# variable window
+#t.c:O(N),s.c:O(n) since dictonary is used
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
         low=0
@@ -16,6 +17,7 @@ class Solution:
                 if(d[fruits[low]]==0):
                     del d[fruits[low]]
                 low+=1
+        # valid case to get the result
             res=max(res,high-low+1)
         return res
 

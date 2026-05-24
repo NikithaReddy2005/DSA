@@ -1,0 +1,21 @@
+#sliding window
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        low=0
+        res=-1
+        d={}
+        for high in range(0,len(fruits)):
+        # information of the window including high
+            if(fruits[high]  in d):
+                d[fruits[high]]+=1
+            else:
+                d[fruits[high]]=1
+        # invalid case to shrink the window
+            while(len(d)>2):        #len(d) indicates length of total keys in the dictonary
+                d[fruits[low]]-=1
+                if(d[fruits[low]]==0):
+                    del d[fruits[low]]
+                low+=1
+            res=max(res,high-low+1)
+        return res
+

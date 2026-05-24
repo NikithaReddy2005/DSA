@@ -1,0 +1,18 @@
+# sloiding window,variable window
+# same as fruits into basket problem only case in if condition
+class Solution:
+    def longestKSubstr(self, s, k):      #T.C O(N)
+        low=0
+        res=-1
+        d={}
+        for high in range(0,len(s)):
+            d[s[high]]=d.get(s[high],0)+1
+            while(len(d)>k):
+                d[s[low]]-=1
+                if(d[s[low]]==0):
+                    del d[s[low]]
+                low+=1
+            if(len(d)==k):
+                res=max(res,high-low+1)
+        return res
+        

@@ -1,0 +1,27 @@
+#sliding window ,variable window
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        n=len(s)
+        low=0
+        d=[0]*26
+        res=float("-inf")
+        def find_cnt(d):
+            maxc=-1
+            for i in range(0,26):
+                maxc=max(maxc,d[i])
+            return maxc
+        for high in range(0,n):
+            d[ord(s[high])-ord('A')]+=1
+            length=high-low+1
+            max_cnt=find_cnt(d)
+            diff = length-max_cnt
+            while(diff > k):
+            #invalid case
+                d[ord(s[low])-ord('A')]-=1
+                low+=1
+                length=high-low+1              #caluculating again since the changes are made in the array
+                max_cnt=find_cnt(d)
+                diff=length-max_cnt
+        #vaild case i.e diff<=k
+            res=max(res,high-low+1)
+        return res

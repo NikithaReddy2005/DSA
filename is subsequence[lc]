@@ -1,4 +1,6 @@
 # two pointer apporach
+# t.c:O(n+m)
+#s.c:O(1)
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         i=j=0
@@ -7,4 +9,3 @@ class Solution:
                 i+=1
             j+=1
         return i == len(s)
-        

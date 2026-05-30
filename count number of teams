@@ -19,3 +19,10 @@ class Solution:
                     right_smaller+=1
             cnt+=left_smaller*right_greater+left_greater*right_smaller
         return cnt        
+...............................................................
+expalnation :
+wrt to middle solider r[j]:
+    increasing teams = left_smaller*right_greater
+    decreasing teams = left_greater+right_smaller
+
+

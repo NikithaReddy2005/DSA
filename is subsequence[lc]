@@ -1,4 +1,4 @@
-# two pointer apporach
+# two pointer apporach.
 # t.c:O(n+m)
 #s.c:O(1)
 class Solution:

@@ -1,4 +1,5 @@
 #Binary search
+#t.c:O(log max(arr),s.c:O(1)
 
 class Solution: 
     import math

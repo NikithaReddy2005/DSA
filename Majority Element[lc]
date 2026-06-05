@@ -1,3 +1,4 @@
+#boyer moore apporach
 #t.c:O(N),#s.c:O(1)
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:

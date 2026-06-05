@@ -1,4 +1,6 @@
-class Solution:
+#Binary search
+
+class Solution: 
     import math
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         left=1

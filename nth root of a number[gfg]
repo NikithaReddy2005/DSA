@@ -1,0 +1,21 @@
+class Solution:
+    def nthRoot(self, n, m):
+        if(m==0):
+            return 0
+        if(m==1):
+            return 1
+        if(n==1):
+            return m
+        left,right = 1,m
+        ans=-1
+        while left<=right:
+            mid=(left+(right))//2
+            power = mid ** n
+            if power == m:
+                ans= mid
+                break
+            if power > m:
+                right = mid -1
+            else:
+                left = mid+1
+        return ans

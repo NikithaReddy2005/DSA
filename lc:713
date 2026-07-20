@@ -1,0 +1,14 @@
+subarray product less than k 
+sliding window apporach
+class Solution:
+    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+        left=0
+        count=0
+        p=1
+        for i in range(0,len(nums)):
+            p*=nums[i]
+            while(p>=k and left<=i):
+                p//=nums[left]
+                left+=1
+            count+=i-left+1
+        return count
